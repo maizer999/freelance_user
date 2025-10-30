@@ -63,13 +63,12 @@ dependencies:
   permission_handler: ^12.0.0+1
   open_filex: ^4.7.0
 
-
-  #parser
+  # parser
   jwt_decoder: ^2.0.1
   dart_mappable: ^4.5.0
   json_annotation: ^4.9.0
 
-  #ui
+  # ui
   toggle_switch: ^2.3.0
   flutter_time_picker_spinner: ^2.0.0
   flutter_calendar_carousel: ^2.5.4
@@ -78,13 +77,13 @@ dependencies:
     git: https://github.com/ahmedoid/hijri_picker.git
   font_awesome_flutter: ^10.8.0
   dart_debouncer: ^1.1.1
-  #  flutter_pdfview: ^1.4.3
-  #  pdf: ^3.11.3
+  # flutter_pdfview: ^1.4.3
+  # pdf: ^3.11.3
   gif_view: ^1.0.3
   otp_pin_field: ^1.4.1
   cached_network_svg_image: any
 
-  #utils
+  # utils
   auto_route: ^10.0.1
   flutter_svg: ^2.2.0
   flutter_form_builder: ^10.0.1
@@ -100,24 +99,15 @@ dependencies:
   cryptography: ^2.7.0
   root_checker_plus: ^1.0.0
 
-
-
-
   auto_route_generator: ^10.2.3
   build_runner: ^2.5.0
   custom_lint: any
   dart_mappable_builder: ^4.5.0
 
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by  the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
+  # testing and linting
   flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
-
 
 dependency_overrides:
   skeletonizer: ^2.0.1
@@ -128,9 +118,12 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
   assets:
     - assets/images/
+
   fonts:
+    # Existing Roboto fonts
     - family: "bold"
       fonts:
         - asset: assets/fonts/Roboto-Bold.ttf
@@ -140,3 +133,25 @@ flutter:
     - family: "regular"
       fonts:
         - asset: assets/fonts/Roboto-Regular.ttf
+
+    # ✅ New Noto Kufi Arabic font family
+    - family: NotoKufiArabic
+      fonts:
+        - asset: assets/fonts/NotoKufiArabic-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/NotoKufiArabic-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/NotoKufiArabic-Light.ttf
+          weight: 300
+        - asset: assets/fonts/NotoKufiArabic-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/NotoKufiArabic-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/NotoKufiArabic-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/NotoKufiArabic-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/NotoKufiArabic-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/NotoKufiArabic-Black.ttf
+          weight: 900
