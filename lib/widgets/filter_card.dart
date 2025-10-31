@@ -47,7 +47,7 @@ class FilterCard<T> extends StatelessWidget {
                     filter.toString().tr(),
                     style: TextStyle(
                         fontSize: AppSizes.size15.sp,
-                        fontFamily: AppStrings.mawaniFontFamily,
+                        fontFamily: 'NotoKufiArabic',
                         fontWeight: FontWeight.w600,
                         color: isSelected
                             ? AppColors.kWhite

@@ -22,7 +22,8 @@ class AppTheme {
         secondary: AppColors.calendarSelected,
         error: AppColors.kDarkRed,
         surface: AppColors.kWhite,),
-      appBarTheme: const AppBarTheme(
+      appBarTheme:  AppBarTheme(
+        backgroundColor: AppColors.kPrimaryColor,
         color: AppColors.kPrimaryColor,
         elevation: 0.0,
         titleTextStyle: TextStyle(

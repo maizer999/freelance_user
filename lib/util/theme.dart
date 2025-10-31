@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 const typeTheme = Typography.whiteMountainView;
 
 class ThemeProvider {
-  static const appColor = Color(0xFF1CAE81);
+  static const appColor = Color(0xFF007BFF);
   static const secondaryAppColor = Color(0xFFFF8A44);
   static const appColorTint = Color(0xFFd2efe6);
 
@@ -27,8 +27,11 @@ class ThemeProvider {
 
   static const backgroundColor = Color.fromARGB(255, 243, 243, 243);
   static const transParent = Colors.transparent;
-  static const titleStyle = TextStyle(fontSize: 14, fontFamily: 'bold', color: ThemeProvider.whiteColor);
-}
+  static const titleStyle = TextStyle(
+    fontSize: 14,
+    fontFamily: 'NotoKufiArabic',
+    color: ThemeProvider.whiteColor,
+  );}
 
 TextTheme txtTheme = Typography.whiteMountainView.copyWith(
   bodyLarge: typeTheme.bodyLarge?.copyWith(fontSize: 16),

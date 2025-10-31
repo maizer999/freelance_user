@@ -123,17 +123,6 @@ flutter:
     - assets/images/
 
   fonts:
-    # Existing Roboto fonts
-    - family: "bold"
-      fonts:
-        - asset: assets/fonts/Roboto-Bold.ttf
-    - family: "medium"
-      fonts:
-        - asset: assets/fonts/Roboto-Medium.ttf
-    - family: "regular"
-      fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
-
     # ✅ New Noto Kufi Arabic font family
     - family: NotoKufiArabic
       fonts:

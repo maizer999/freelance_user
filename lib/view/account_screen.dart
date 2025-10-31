@@ -1,11 +1,3 @@
-/*
-  Authors : initappz (Rahul Jograna)
-  Website : https://initappz.com/
-  App Name : Handy Service Full App Flutter V6
-  This App Template Source code is licensed as per the
-  terms found in the Website https://initappz.com/license
-  Copyright and Good Faith Purchasers © 2025-present initappz.
-*/
 import 'package:flutter/material.dart';
 import '../helper/router.dart';
 import '../util/theme.dart';
@@ -38,10 +30,13 @@ class _AccountScreenState extends State<AccountScreen> {
             actions: [
               value.login == true
                   ? TextButton(
-                      style: TextButton.styleFrom(tapTargetSize: MaterialTapTargetSize.shrinkWrap, padding: const EdgeInsets.only(left: 6)),
-                      onPressed: () => value.onEditProfile(),
-                      child: Text('Edit'.tr, style: const TextStyle(color: ThemeProvider.whiteColor, fontFamily: 'medium', fontSize: 14)),
-                    )
+                style: TextButton.styleFrom(
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    padding: const EdgeInsets.only(left: 6)
+                ),
+                onPressed: () => value.onEditProfile(),
+                child: Text('Edit'.tr, style: const TextStyle(color: ThemeProvider.whiteColor, fontFamily: 'medium', fontSize: 14)),
+              )
                   : const SizedBox()
             ],
           ),
@@ -53,196 +48,132 @@ class _AccountScreenState extends State<AccountScreen> {
                 const SizedBox(height: 16),
                 value.login == true
                     ? Container(
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
-                        width: 100,
-                        height: 100,
-                        child: FadeInImage(
-                          image: NetworkImage('${Environments.apiBaseURL}storage/images/${value.cover.toString()}'),
-                          placeholder: const AssetImage("assets/images/placeholder.jpeg"),
-                          imageErrorBuilder: (context, error, stackTrace) {
-                            return Image.asset('assets/images/notfound.png', fit: BoxFit.cover, height: 100, width: 100);
-                          },
-                          fit: BoxFit.cover,
-                        ),
-                      )
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    boxShadow: [BoxShadow(blurRadius: 8, color: Colors.black26)],
+                  ),
+                  width: 100,
+                  height: 100,
+                  child: FadeInImage(
+                    image: NetworkImage('${Environments.apiBaseURL}storage/images/${value.cover.toString()}'),
+                    placeholder: const AssetImage("assets/images/placeholder.jpeg"),
+                    imageErrorBuilder: (context, error, stackTrace) {
+                      return Image.asset('assets/images/notfound.png', fit: BoxFit.cover, height: 100, width: 100);
+                    },
+                    fit: BoxFit.cover,
+                  ),
+                )
                     : const SizedBox(),
                 SizedBox(height: value.login == true ? 10 : 0),
                 value.login == true ? heading2('${value.firstName.toString()} ${value.lastName.toString()}') : const SizedBox(),
                 SizedBox(height: value.login == true ? 2 : 0),
                 value.login == true ? lightText(value.email.toString()) : const SizedBox(),
                 SizedBox(height: value.login == true ? 16 : 0),
-                value.login == false
-                    ? Card(
-                        child: ListTile(
-                          onTap: () => value.onLogin(),
-                          visualDensity: const VisualDensity(vertical: -3),
-                          leading: const Icon(Icons.login_outlined),
-                          minLeadingWidth: 0,
-                          title: heading4('Login / Register'.tr),
-                          trailing: const Icon(Icons.chevron_right),
-                        ),
-                      )
-                    : const SizedBox(),
-                value.login == true
-                    ? Card(
-                        child: ListTile(
-                          onTap: () => value.onProductHistory(),
-                          visualDensity: const VisualDensity(vertical: -3),
-                          leading: const Icon(Icons.file_present_outlined),
-                          minLeadingWidth: 0,
-                          title: heading4('Product History'.tr),
-                          trailing: const Icon(Icons.chevron_right),
-                        ),
-                      )
-                    : const SizedBox(),
-                value.login == true
-                    ? Card(
-                        child: ListTile(
-                          onTap: () => value.onFavorite(),
-                          visualDensity: const VisualDensity(vertical: -3),
-                          leading: const Icon(Icons.favorite_outline),
-                          minLeadingWidth: 0,
-                          title: heading4('Favorite'.tr),
-                          trailing: const Icon(Icons.chevron_right),
-                        ),
-                      )
-                    : const SizedBox(),
-                value.login == true
-                    ? Card(
-                        child: ListTile(
-                          onTap: () => value.onAddress(),
-                          visualDensity: const VisualDensity(vertical: -3),
-                          leading: const Icon(Icons.location_on_outlined),
-                          minLeadingWidth: 0,
-                          title: heading4('Your Address'.tr),
-                          trailing: const Icon(Icons.chevron_right),
-                        ),
-                      )
-                    : const SizedBox(),
-                value.login == true
-                    ? Card(
-                        child: ListTile(
-                          onTap: () => value.onChat(),
-                          visualDensity: const VisualDensity(vertical: -3),
-                          leading: const Icon(Icons.support_agent_outlined),
-                          minLeadingWidth: 0,
-                          title: heading4('Inbox'.tr),
-                          trailing: const Icon(Icons.chevron_right),
-                        ),
-                      )
-                    : const SizedBox(),
-                value.login == true
-                    ? Card(
-                        child: ListTile(
-                          onTap: () => Get.toNamed(AppRouter.getWalletRoute()),
-                          visualDensity: const VisualDensity(vertical: -3),
-                          leading: const Icon(Icons.account_balance_wallet_outlined),
-                          minLeadingWidth: 0,
-                          title: heading4('Wallet'.tr),
-                          trailing: const Icon(Icons.chevron_right),
-                        ),
-                      )
-                    : const SizedBox(),
-                value.login == true
-                    ? Card(
-                        child: ListTile(
-                          onTap: () => Get.toNamed(AppRouter.getReferRoute()),
-                          visualDensity: const VisualDensity(vertical: -3),
-                          leading: const Icon(Icons.insert_invitation_outlined),
-                          minLeadingWidth: 0,
-                          title: heading4('Refer & Earn'.tr),
-                          trailing: const Icon(Icons.chevron_right),
-                        ),
-                      )
-                    : const SizedBox(),
-                Card(
-                  child: ListTile(
-                    onTap: () => value.onLanguage(),
-                    visualDensity: const VisualDensity(vertical: -3),
-                    leading: const Icon(Icons.language_outlined),
-                    minLeadingWidth: 0,
-                    title: heading4('Language'.tr),
-                    trailing: const Icon(Icons.chevron_right),
+
+                // Card Styles with Rounded Corners and Shadows
+                if (value.login == false)
+                  _buildAccountOption(
+                      icon: Icons.login_outlined,
+                      title: 'Login / Register',
+                      onTap: () => value.onLogin()
                   ),
-                ),
-                Card(
-                  child: ListTile(
-                    onTap: () => Get.toNamed(AppRouter.getForgotPasswordRoute()),
-                    visualDensity: const VisualDensity(vertical: -3),
-                    leading: const Icon(Icons.lock_outline),
-                    minLeadingWidth: 0,
-                    title: heading4('Change Password'.tr),
-                    trailing: const Icon(Icons.chevron_right),
-                  ),
-                ),
-                Card(
-                  child: ListTile(
-                    onTap: () => value.onContactUs(),
-                    visualDensity: const VisualDensity(vertical: -3),
-                    leading: const Icon(Icons.contact_mail_outlined),
-                    minLeadingWidth: 0,
-                    title: heading4('Contact Us'.tr),
-                    trailing: const Icon(Icons.chevron_right),
-                  ),
-                ),
-                Card(
-                  child: ListTile(
-                    onTap: () => value.onAppPages('Frequently Asked Questions'.tr, '5'),
-                    visualDensity: const VisualDensity(vertical: -3),
-                    leading: const Icon(Icons.flag_outlined),
-                    minLeadingWidth: 0,
-                    title: heading4('FAQs'.tr),
-                    trailing: const Icon(Icons.chevron_right),
-                  ),
-                ),
-                Card(
-                  child: ListTile(
-                    onTap: () => value.onAppPages('Help'.tr, '6'),
-                    visualDensity: const VisualDensity(vertical: -3),
-                    leading: const Icon(Icons.help_outline),
-                    minLeadingWidth: 0,
-                    title: heading4('Help'.tr),
-                    trailing: const Icon(Icons.chevron_right),
-                  ),
-                ),
-                Card(
-                  child: ListTile(
-                    onTap: () => value.onAppPages('Terms & Conditions'.tr, '3'),
-                    visualDensity: const VisualDensity(vertical: -3),
-                    leading: const Icon(Icons.privacy_tip_outlined),
-                    minLeadingWidth: 0,
-                    title: heading4('Terms & Conditions'.tr),
-                    trailing: const Icon(Icons.chevron_right),
-                  ),
-                ),
-                Card(
-                  child: ListTile(
-                    onTap: () => value.onAppPages('Privacy Policy'.tr, '2'),
-                    visualDensity: const VisualDensity(vertical: -3),
-                    leading: const Icon(Icons.lock_open_outlined),
-                    minLeadingWidth: 0,
-                    title: heading4('Privacy Policy'.tr),
-                    trailing: const Icon(Icons.chevron_right),
-                  ),
-                ),
-                value.login == true
-                    ? Card(
-                        child: ListTile(
-                          onTap: () => value.logout(),
-                          visualDensity: const VisualDensity(vertical: -3),
-                          leading: const Icon(Icons.logout_outlined),
-                          minLeadingWidth: 0,
-                          title: heading4('Logout'.tr),
-                          trailing: const Icon(Icons.chevron_right),
-                        ),
-                      )
-                    : const SizedBox(),
+                if (value.login == true)
+                  ...[
+                    _buildAccountOption(
+                      icon: Icons.file_present_outlined,
+                      title: 'Product History',
+                      onTap: () => value.onProductHistory(),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.favorite_outline,
+                      title: 'Favorite',
+                      onTap: () => value.onFavorite(),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.location_on_outlined,
+                      title: 'Your Address',
+                      onTap: () => value.onAddress(),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.support_agent_outlined,
+                      title: 'Inbox',
+                      onTap: () => value.onChat(),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.account_balance_wallet_outlined,
+                      title: 'Wallet',
+                      onTap: () => Get.toNamed(AppRouter.getWalletRoute()),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.insert_invitation_outlined,
+                      title: 'Refer & Earn',
+                      onTap: () => Get.toNamed(AppRouter.getReferRoute()),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.language_outlined,
+                      title: 'Language',
+                      onTap: () => value.onLanguage(),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.lock_outline,
+                      title: 'Change Password',
+                      onTap: () => Get.toNamed(AppRouter.getForgotPasswordRoute()),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.contact_mail_outlined,
+                      title: 'Contact Us',
+                      onTap: () => value.onContactUs(),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.flag_outlined,
+                      title: 'FAQs',
+                      onTap: () => value.onAppPages('Frequently Asked Questions'.tr, '5'),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.help_outline,
+                      title: 'Help',
+                      onTap: () => value.onAppPages('Help'.tr, '6'),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.privacy_tip_outlined,
+                      title: 'Terms & Conditions',
+                      onTap: () => value.onAppPages('Terms & Conditions'.tr, '3'),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.lock_open_outlined,
+                      title: 'Privacy Policy',
+                      onTap: () => value.onAppPages('Privacy Policy'.tr, '2'),
+                    ),
+                    _buildAccountOption(
+                      icon: Icons.logout_outlined,
+                      title: 'Logout',
+                      onTap: () => value.logout(),
+                    ),
+                  ],
               ],
             ),
           ),
         );
       },
+    );
+  }
+
+  Widget _buildAccountOption({required IconData icon, required String title, required VoidCallback onTap}) {
+    return Card(
+      elevation: 4, // Adding shadow to each card
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15), // Round corners
+      ),
+      margin: const EdgeInsets.symmetric(vertical: 8), // Spacing between cards
+      child: ListTile(
+        onTap: onTap,
+        visualDensity: const VisualDensity(vertical: -3),
+        leading: Icon(icon),
+        minLeadingWidth: 0,
+        title: heading4(title.tr),
+        trailing: const Icon(Icons.chevron_right),
+      ),
     );
   }
 }
